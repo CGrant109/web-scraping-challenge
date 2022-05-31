@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 import pymongo
+from selenium import webdriver
+
 
 def init_browser():
     # @NOTE: Replace the path with your actual path to the chromedriver
@@ -19,6 +21,7 @@ def scrape():
     browser.visit(news_url)
     html = browser.html
     news_soup = BeautifulSoup(html, 'html.parser')
+
     # Retrieve the latest news title and paragraph
     news_title = news_soup.find_all('div', class_='content_title')[0].text
     news_p = news_soup.find_all('div', class_='article_teaser_body')[0].text
@@ -29,6 +32,7 @@ def scrape():
     browser.visit(space_images_url)
     html = browser.html
     images_soup = BeautifulSoup(html, 'html.parser')
+
     # Retrieve featured image link
     relative_image_path = images_soup.find_all('img')[3]["src"]
     featured_image_url = space_images_url + relative_image_path
@@ -51,11 +55,14 @@ def scrape():
     all_mars_hemispheres = hemispheres_soup.find('div', class_='collapsible results')
     mars_hemispheres = all_mars_hemispheres.find_all('div', class_='item')
     hemisphere_image_urls = []
+
     # Looping through each hemisphere data
     for i in mars_hemispheres:
+
         # Collect Title
         hemisphere = i.find('div', class_="description")
         title = hemisphere.h3.text        
+
         # Collect image link through hemisphere page
         hemisphere_link = hemisphere.a["href"]    
         browser.visit(usgs_url + hemisphere_link)        
@@ -63,6 +70,7 @@ def scrape():
         image_soup = BeautifulSoup(image_html, 'html.parser')        
         image_link = image_soup.find('div', class_='downloads')
         image_url = image_link.find('li').a['href']
+        
         # Create Dictionary for title and url info
         image_dict = {}
         image_dict['title'] = title
@@ -74,7 +82,6 @@ def scrape():
         "news_title": news_title,
         "news_p": news_p,
         "featured_image_url": featured_image_url,
-        "mars_weather": mars_weather,
         "fact_table": str(mars_html_table),
         "hemisphere_images": hemisphere_image_urls
     }
