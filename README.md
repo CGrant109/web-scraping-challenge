@@ -17,7 +17,7 @@ news_p = "Preparation of NASA's next spacecraft to Mars, InSight, has ramped up 
 
 ### JPL Mars Space Images - Featured Image
 
-* Visit the url for JPL Featured Space Image.
+* Visit the URL for the Featured Space Image site [here](https://spaceimages-mars.com).
 * Use splinter to navigate the site and find the image url for the current Featured Mars Image and assign the url string to a variable called `featured_image_url`.
 * Make sure to find the image url to the full size `.jpg` image.
 * Make sure to save a complete url string for this image.
