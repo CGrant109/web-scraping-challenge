@@ -27,7 +27,7 @@ featured_image_url = 'https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA1
 ```
 ### Mars Facts
 
-* Visit the Mars Facts webpage [here]([https://galaxyfacts-mars.com]) and use Pandas to scrape the table containing facts about the planet including Diameter, Mass, etc.
+* Visit the [Mars Facts webpage](https://galaxyfacts-mars.com) and use Pandas to scrape the table containing facts about the planet including diameter, mass, etc.
 * Use Pandas to convert the data to a HTML table string.
 
 ### Mars Hemispheres
