@@ -88,6 +88,9 @@ To submit your work to BootCampSpot, create a new GitHub repository and upload t
 Ensure your repository has regular commits and a detailed `README.md` file. Then, submit the link to your new repository. 
 
 
+[![mars-2.jpg](https://i.postimg.cc/9Qf3qbsB/mars-2.jpg)](https://postimg.cc/6yFbkrW7)
+
+
 
 - - -
 ## Written by Connor Grant
